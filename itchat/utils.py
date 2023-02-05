@@ -1,3 +1,4 @@
+import time
 import re, os, sys, subprocess, copy, traceback, logging
 
 try:
@@ -161,3 +162,7 @@ def update_info_dict(oldInfoDict, newInfoDict):
             pass # these values will be updated somewhere else
         elif oldInfoDict.get(k) is None or v not in (None, '', '0', 0):
             oldInfoDict[k] = v
+
+def file_name():
+    a = time.strftime('%Y%m%d-%H%M%S', time.localtime())
+    return f'{a}_{time.time_ns()}'
